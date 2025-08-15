@@ -1,0 +1,198 @@
+/* style.css - Women's Month Theme (soft pink + gold + white) */
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root{
+  --bg: #fff7f9;
+  --pink-50: #fff0f4;
+  --pink-200: #ffb6c1;
+  --pink-400: #ff69b4;
+  --gold: #d4af37;
+  --card-bg: #ffffff;
+  --text: #2b2b2b;
+  --muted: #6b6b6b;
+  --maxwidth: 1100px;
+  --radius: 12px;
+}
+
+body{
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, #fffaf6 100%);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+header{
+  background: linear-gradient(90deg, rgba(255,182,193,0.95), rgba(255,105,180,0.95));
+  color: #fff;
+  padding: 1.6rem 1rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+header h1{ font-size: 1.8rem; letter-spacing: 0.6px; }
+header nav { margin-top: 8px; }
+header nav a{
+  color: #fff;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+header nav a:hover{ background: rgba(255,255,255,0.08); }
+
+/* Layout */
+.container{
+  max-width: var(--maxwidth);
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Section headers */
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:0.6rem;
+}
+.section-title h2{
+  font-size:1.4rem;
+  color: var(--pink-400);
+  letter-spacing:0.3px;
+}
+
+/* Card */
+.card{
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding:1.25rem;
+  margin:1rem 0;
+  box-shadow: 0 6px 20px rgba(17,17,17,0.06);
+  transition: transform .35s ease, box-shadow .35s ease, opacity .5s ease;
+  opacity: 0;
+  transform: translateY(18px);
+  overflow: hidden;
+}
+.card.visible { opacity: 1; transform: translateY(0); }
+
+/* Two-column grid */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:1rem;
+}
+@media(min-width:900px){
+  .grid-2{ grid-template-columns: 1fr 1fr; }
+  .grid-3{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Profile card specifics */
+.profile{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.profile img{
+  width:110px;
+  height:110px;
+  object-fit:cover;
+  border-radius:10px;
+  flex-shrink:0;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  border: 4px solid rgba(255,255,255,0.6);
+}
+.profile .meta h3{ margin-bottom:6px; color: #b22222; font-size:1.05rem; }
+.profile .meta p { color: var(--muted); font-size:0.95rem; }
+
+/* Quote block */
+.quote{
+  font-style: italic;
+  border-left:4px solid var(--pink-400);
+  padding:10px 14px;
+  background: linear-gradient(90deg, rgba(255,240,245,0.6), rgba(255,250,250,0.2));
+  border-radius:8px;
+  margin:10px 0;
+}
+
+/* Poems */
+.poem{
+  background: linear-gradient(180deg, #fff, #fffdfa);
+  border-radius:10px;
+  padding:14px;
+  font-weight:500;
+  color:#444;
+}
+
+/* Buttons */
+.btn{
+  display:inline-block;
+  background: linear-gradient(90deg, var(--pink-400), #e8528a);
+  color: white;
+  padding:10px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow: 0 8px 20px rgba(233,80,138,0.18);
+}
+.btn:hover{ transform: translateY(-3px); }
+
+/* Footer */
+footer{
+  background: linear-gradient(90deg, var(--pink-400), #e0528e);
+  color: #fff;
+  padding:16px 8px;
+  margin-top:36px;
+  text-align:center;
+  border-top-left-radius:16px;
+  border-top-right-radius:16px;
+}
+
+/* Support list */
+.support-list{ list-style:none; display:grid; gap:12px; }
+.support-list li{
+  padding:12px;
+  border-radius:10px;
+  background: linear-gradient(180deg,#fff,#fffdf9);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+}
+.support-list li strong{ color: #b22222; }
+
+/* Contact form */
+.form-row{ display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+input[type="text"], input[type="email"], textarea{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #eee;
+  font-size:0.95rem;
+  width:100%;
+}
+textarea{ min-height:120px; resize:vertical; }
+
+/* small print */
+.small{ font-size:0.88rem; color:var(--muted); margin-top:8px; }
+
+/* Lightbox modal */
+.modal{
+  position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+  background: rgba(0,0,0,0.6); z-index:200;
+}
+.modal .modal-inner{
+  max-width:900px; width:94%; background:#fff; padding:14px; border-radius:12px;
+}
+.modal img{ width:100%; height:auto; border-radius:8px; }
+
+/* utilities */
+.center{ text-align:center; }
+.small-quiet { font-size:0.9rem; color:var(--muted); }
+
+/* animations */
+@keyframes pop {
+  from{ transform: scale(.98); opacity: 0; }
+  to{ transform: scale(1); opacity: 1; }
+}
